@@ -1,0 +1,18 @@
+---
+title: "DevelopingDataProducts-Week2-CourseProject1"
+author: "Sharvari"
+date: "February 22, 2019"
+output: ioslides_presentation
+---
+
+
+## This document displays an interactive map of 4 tourist attractions in Long Beach,California,USA.
+
+```{r, echo=FALSE}
+library(leaflet)
+df <- data.frame(lat = c(33.752635600,33.76216,33.844178,33.809551 ) ,long = c(-118.190323500,-118.19692,-118.000267 ,-118.086914), popup = c("Queen Mary", "Aquarium Of Pacific","Knotts Berry Farm","El Dorado Park") )
+
+ leaflet() %>% addTiles() %>% addCircleMarkers(data = df , lng = ~long , lat = ~lat , radius = 5 , color = "#FF0000" , clusterOptions = markerClusterOptions(),popup = ~popup) %>%
+addLegend("bottomright", colors= "#FF0000", labels="Tourist Attractions", title="In Long Beach")
+
+```
