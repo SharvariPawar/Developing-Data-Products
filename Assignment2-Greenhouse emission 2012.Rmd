@@ -1,0 +1,19 @@
+---
+title: "Assignment2 - Total greenhouse gas emissions (kt of CO2 equivalent) for 2012"
+author: "Sharvari"
+date: "March 2, 2019"
+output: ioslides_presentation
+---
+
+## This document shows Greenhouse gas emissions by country for year 2012
+
+
+
+
+
+```{r,echo=FALSE, message=FALSE}
+ library(plotly)
+WDIDATA.Greenhouse.gas.2012 <- read.csv("~/Data Science Specialization/C9-Developing Data Products/WEEK 3/WDIDATA-Greenhouse gas 2012.csv")
+plot_ly(type="choropleth", locations=WDIDATA.Greenhouse.gas.2012$Country.Name, locationmode="country names", z=WDIDATA.Greenhouse.gas.2012$X2012) %>% layout(geo=list(scope="world") )
+
+```
